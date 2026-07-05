@@ -40,7 +40,9 @@
   :root[data-theme="dark"] .box img.mono{filter:invert(1) brightness(1.05)}
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
-    font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    /* "Plex Mono Box" (unicode-range-scoped, defined below) only supplies the
+       box-drawing glyphs IBM Plex Mono's webfont lacks — e.g. the hr.rule dividers. */
+    font-family:"IBM Plex Mono","Plex Mono Box",ui-monospace,Menlo,monospace;
     font-size:14px;line-height:1.55;font-weight:400;
     -webkit-font-smoothing:antialiased;
     -webkit-user-select:none;-moz-user-select:none;user-select:none;
@@ -70,8 +72,21 @@
   .dim{color:var(--dim)}
 
   /* hero ascii block */
+  /* Self-hosted subset of IBM Plex Mono carrying ONLY box-drawing (U+2500–257F)
+     and block-element (U+2580–259F) glyphs. Google's IBM Plex Mono webfont omits
+     these ranges, so without this they fall back to a system font — fine on
+     macOS/iOS, but Android substitutes non-monospaced glyphs and the art breaks. */
+  @font-face{
+    font-family:"Plex Mono Box";
+    font-style:normal;font-weight:400 700;font-display:swap;
+    src:url("fonts/IBMPlexMono-boxdrawing.woff2") format("woff2");
+    unicode-range:U+2500-257F, U+2580-259F;
+  }
   .ascii{font-size:11px;line-height:1.15;white-space:pre;color:var(--fg);
     margin:18px 0 24px;font-weight:500;letter-spacing:0;
+    /* IBM Plex Mono renders the Latin tagline; the box/block glyphs it lacks
+       resolve to "Plex Mono Box" (same metrics) instead of a system fallback. */
+    font-family:"IBM Plex Mono","Plex Mono Box",ui-monospace,Menlo,monospace;
     overflow-x:auto;
   }
   @media (max-width:560px){ .ascii{font-size:8px} }
@@ -391,7 +406,21 @@
   <td class="size">2008→present</td>
 </tr>
 <tr>
-  <td class="ico"><div class="box"><img class="mono" src="img/octocat.svg" alt="GitHub Octocat"></div></td>
+  <td class="ico"><div class="box"><img src="img/paulstretch.png" alt="Paulstretch icon"></div></td>
+  <td class="name">
+    <div><span class="n">Paulstretch</span><span class="tag">port</span></div>
+    <div class="meta">extreme time-stretch · Ableton Extension · Web · WASM/npm</div>
+    <div class="blurb">A port of Nasca Octavian Paul's <span class="em">Paulstretch</span> extreme time-stretch algorithm — packaged as an Ableton Extension, a browser app, and a WebAssembly library.</div>
+    <div class="links">
+      <a href="https://github.com/olilarkin/paulstretch-for-live">for-live</a>
+      <a href="https://github.com/olilarkin/paulstretch-for-web">for-web</a>
+      <a href="https://github.com/olilarkin/libpaulstretch/pkgs/npm/paulstretch-wasm">wasm · npm</a>
+    </div>
+  </td>
+  <td class="size">—</td>
+</tr>
+<tr>
+  <td class="ico"><div class="box"><img src="img/octocat.svg" alt="GitHub Octocat"></div></td>
   <td class="name">
     <div><span class="n">awesome-musicdsp</span><span class="tag">list</span></div>
     <div class="meta">curated · music-DSP &amp; audio programming</div>
@@ -485,6 +514,7 @@
 <div class="line">→ <a href="https://soundcloud.com/olilarkin">soundcloud.com/olilarkin</a></div>
 <div class="line">→ <a href="https://www.instagram.com/olilarkin.audio/">instagram.com/olilarkin.audio</a></div>
 <div class="line">→ <a href="https://olilarkin.blogspot.com/">olilarkin.blogspot.com</a></div>
+<div class="line">→ <a href="https://youtube.com/olilarkin">youtube.com/olilarkin</a></div>
 <div class="line" style="margin-top:18px"><b>Oliver Larkin</b> · © 2003–2026</div>
 <div class="line">last modified: <span id="lm"></span></div>
 </footer>
