@@ -87,8 +87,9 @@
     /* IBM Plex Mono renders the Latin tagline; the box/block glyphs it lacks
        resolve to "Plex Mono Box" (same metrics) instead of a system fallback. */
     font-family:"IBM Plex Mono","Plex Mono Box",ui-monospace,Menlo,monospace;
-    overflow-x:auto;
+    overflow:hidden;
   }
+  @media (max-width:780px){ .ascii{font-size:9px} }
   @media (max-width:560px){ .ascii{font-size:8px} }
 
   /* hero: title + bio on the left, photo on the right */
@@ -236,7 +237,7 @@
 <img class="portrait" src="img/portrait.jpg" alt="Oliver Larkin">
 </div>
 
-<div class="prompt"><b>olilarkin@portfolio</b>:~/work$ <b>ls</b> -la</div>
+<div class="prompt"><b>olilarkin@portfolio</b>:~/$ <b>ls</b> -la</div>
 <hr class="rule">
 
 <!-- ──────── WORK ──────── -->
@@ -249,7 +250,7 @@
   <td class="name">
     <div><span class="n">Ableton</span><span class="tag">industry</span></div>
     <div class="meta">software engineer · C++ · on-device ML</div>
-    <div class="blurb">Since joining Ableton in 2021, I've worked on the <span class="em">sound similarity</span>, auto-tagging, and stem-separation features for Live 12, amongst other things.</div>
+    <div class="blurb">Since joining Ableton in 2021, I've worked on several Machine Learning related features, amongst other things.</div>
     <div class="links">
       <a href="https://www.ableton.com">ableton.com</a>
     </div>
@@ -286,7 +287,7 @@
 <!-- ──────── COMMERCIAL ──────── -->
 <section class="sec">
 <h2>/commercial</h2>
-<p class="desc">Independently published plug-ins and apps.</p>
+<p class="desc">Plug-ins and apps that I've made (closed source).</p>
 <table class="ls">
 <tr>
   <td class="ico"><div class="box"><img src="img/vcz.png" alt="VirtualCZ icon"></div></td>
@@ -485,7 +486,7 @@
     <div><span class="n">[ The Logos / FRBSynth ]</span><span class="tag">installation</span></div>
     <div class="meta">[ Oulu / 2026 ] · [ Andrew Melchior ]</div>
     <div class="blurb">I worked with Andrew on his sound art installation "The Logos" for the Oulu Capital of Culture 2026. I developed a VST plugin for sonifying FRBs and software to run the 4.4.4. surround installation, installed in Oulu Cathedral for a year.</div>
-    <div class="links"><a href="https://thelogos.art/">https://thelogos.art/</a></div>
+    <div class="links"><a href="https://thelogos.art/">https://thelogos.art/</a><a href="https://www.genelec.com/-/news/sounds-of-deep-space-revealed-by-the-logos-sonic-artwork-at-oulu2026">Genelec.com News Article</a></div>
   </td>
   <td class="size">—</td>
 </tr>
